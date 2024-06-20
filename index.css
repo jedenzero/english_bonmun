@@ -10,14 +10,18 @@ body{
   overflow:hidden;
   overscroll-behavior:none;
 }
-#show{
+#pas{
   box-sizing:border-box;
   width:300px;
-  min-height:200px;
+  min-height:50px;
   margin:0 auto;
+  margin-top:25px;
   margin-bottom:25px;
   border-radius:25px;
   box-shadow:#8C96A033 0px 2px 20px;
+}
+#show{
+  padding:20px;
 }
 #words{
   padding:20px;
