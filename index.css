@@ -7,6 +7,8 @@ body{
   width:100vw;
   height:100dvh;
   margin:0;
+  padding-left:20px;
+  padding-right:20px;
   overflow:hidden;
   overscroll-behavior:none;
 }
@@ -17,8 +19,12 @@ body{
   margin:0 auto;
   margin-top:25px;
   margin-bottom:25px;
+  padding-left:25px;
+  padding-top:auto;
+  padding-bottom:15px;
   border-radius:25px;
-  box-shadow:#8C96A033 0px 2px 20px;
+  background-color:#4C3BCF;
+  color:#FAFAFA;
 }
 #show{
   padding:20px;
