@@ -12,6 +12,9 @@ body{
   overflow:hidden;
   overscroll-behavior:none;
 }
+input{
+  font-size:16px;
+}
 #pas{
   box-sizing:border-box;
   width:300px;
@@ -20,11 +23,10 @@ body{
   margin-top:25px;
   margin-bottom:25px;
   padding-left:25px;
-  padding-top:auto;
-  padding-bottom:15px;
+  padding-top:15px;
   border-radius:25px;
-  background-color:#4C3BCF;
-  color:#FAFAFA;
+  border:2px solid #4C3BCF;
+  border-left:3px;
 }
 #show{
   padding:20px;
