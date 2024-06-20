@@ -14,7 +14,7 @@ fetch(`https://sheets.googleapis.com/v4/spreadsheets/178c5tppoxNq9wAKo3-d8gNWOsQ
 }
 function next(){
     if(num<bonmun.length){
-    problem(bonmun[num].split(' '),translation[num].split(' '));
+    problem(bonmun[num].split(' '),translation[num]+'.');
     }
 }
 function problem(words,pas){
@@ -22,10 +22,21 @@ function problem(words,pas){
     document.getElementById('show').textContent='';
     document.getElementById('words').textContent='';
     document.getElementById('next').style.display='none';
+    words=shuffle(words);
     words.forEach(el=>{
-        document.getElementById('words').innerHTML+=`<div id="${el}"class="unselected">${el}</div>`;
+        document.getElementById('words').innerHTML+=`<span id="${el}"class="unselected">${el}</span>`;
         document.getElementById(el).addEventListener('click',select);
     });
+}
+function shuffle(arr){
+    var l=arr.length;
+    var newarr=[];
+    for(i=0;i<l-1;i++;){
+        r=Math.floor(Math.random()*arr.length);
+        newarr.append(arr[r]);
+        arr.splice(r,1);
+    }
+    return newarr;
 }
 function select(){
     if(this.className=="unselected"){
