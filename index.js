@@ -29,8 +29,7 @@ function problem(words, pas) {
     document.getElementById('next').style.display = 'none';
     words = shuffle(words);
     words.forEach(el => {
-        document.getElementById('words').innerHTML += `<span id="${el}" class="unselected">${el}</span>`;
-        document.getElementById(el).addEventListener('click', select);
+        document.getElementById('words').innerHTML += `<span id="${el}" class="unselected" onClick="select(this);">${el}</span>`;
     });
 }
 
@@ -45,10 +44,10 @@ function shuffle(arr) {
     return newarr;
 }
 
-function select() {
-    if (this.className == "unselected") {
-        this.className = "selected";
-        document.getElementById('show').textContent += ' ' + this.textContent;
+function select(word) {
+    if (word.className == "unselected") {
+        word.className = "selected";
+        document.getElementById('show').textContent += ' ' + word.textContent;
     }
     if (document.querySelectorAll('.unselected').length == 0) {
         if (document.getElementById('show').textContent.trim() == bonmun[num]) {
