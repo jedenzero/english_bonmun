@@ -29,7 +29,7 @@ function problem(words, pas) {
     document.getElementById('next').style.display = 'none';
     words = shuffle(words);
     words.forEach(el => {
-        document.getElementById('words').innerHTML += `<span id="${el}" class="unselected" onClick="select(this);">${el}</span>`;
+        document.getElementById('words').innerHTML += `<span id="${'word-'+el}" class="unselected" onClick="select(this);">${el}</span>`;
     });
 }
 
