@@ -9,6 +9,7 @@ fetch(`https://sheets.googleapis.com/v4/spreadsheets/178c5tppoxNq9wAKo3-d8gNWOsQ
 .then(data=>{
     bonmun=data.values[sec-1][0].split('. ');
     translation=data.values[sec-1][1].split('. ');
+    bonmun[-1].replace('.','');
     next();
 });
 }
@@ -24,24 +25,24 @@ function problem(words,pas){
     document.getElementById('next').style.display='none';
     words=shuffle(words);
     words.forEach(el=>{
-        document.getElementById('words').innerHTML+=`<span id="${el}"class="unselected"onClick="select(this);">${el}</span>`;
+        document.getElementById('words').innerHTML+=`<span id="${el}"class="unselected">${el}</span>`;
         document.getElementById(el).addEventListener('click',select);
     });
 }
 function shuffle(arr){
     var l=arr.length;
     var newarr=[];
-    for(i=0;i<l-1;i++){
+    for(i=0;i<l;i++){
         r=Math.floor(Math.random()*arr.length);
         newarr.push(arr[r]);
         arr.splice(r,1);
     }
     return newarr;
 }
-function select(word){
-    if(word.className=="unselected"){
-    word.className="selected";
-    document.getElementById('show').textContent+=' '+word.textContent;
+function select(){
+    if(this.className=="unselected"){
+    this.className="selected";
+    document.getElementById('show').textContent+=' '+this.textContent;
     }
     if(document.querySelectorAll('.unselected').length==0){
         if(document.getElementById('show').textContent==bonmun[num]){
@@ -50,6 +51,7 @@ function select(word){
         else{
             document.getElementById('pas').textContent='틀림';
         }
+        document.getElementById('show').textContent+='.';
         num++;
         document.getElementById('next').style.display='block';
     }
