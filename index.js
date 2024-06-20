@@ -9,7 +9,7 @@ fetch(`https://sheets.googleapis.com/v4/spreadsheets/178c5tppoxNq9wAKo3-d8gNWOsQ
 .then(data=>{
     bonmun=data.values[sec-1][0].split('. ');
     translation=data.values[sec-1][1].split('. ');
-    bonmun[-1].replace('.','');
+    bonmun[-1]=bonmun[-1].replace('.','');
     next();
 });
 }
