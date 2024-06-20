@@ -14,14 +14,14 @@ fetch(`https://sheets.googleapis.com/v4/spreadsheets/178c5tppoxNq9wAKo3-d8gNWOsQ
 }
 function next(){
     if(num<bonmun.length){
-    problem(bonmun[num],translation[num]);
+    problem(bonmun[num].split(' '),translation[num].split(' '));
     }
 }
 function problem(words,pas){
     document.getElementById('pas').textContent=pas;
     document.getElementById('show').textContent='';
     document.getElementById('words').textContent='';
-    document.getElementById('next').display='none';
+    document.getElementById('next').style.display='none';
     words.forEach(el=>{
         document.getElementById('words').innerHTML+=`<div id="${el}"class="unselected">${el}</div>`;
         document.getElementById(el).addEventListener('click',select);
