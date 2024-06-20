@@ -31,9 +31,9 @@ function problem(words,pas){
 function shuffle(arr){
     var l=arr.length;
     var newarr=[];
-    for(i=0;i<l-1;i++;){
+    for(i=0;i<l-1;i++){
         r=Math.floor(Math.random()*arr.length);
-        newarr.append(arr[r]);
+        newarr.push(arr[r]);
         arr.splice(r,1);
     }
     return newarr;
@@ -43,7 +43,7 @@ function select(){
     this.className="selected";
     document.getElementById('show').textContent+=' '+this.textContent;
     }
-    if(!document.getElementById('unselected')){
+    if(document.querySelectorAll('.unselected').length==0){
         if(document.getElementById('show').textContent==bonmun[num]){
             document.getElementById('pas').textContent='맞음';
         }
@@ -51,6 +51,6 @@ function select(){
             document.getElementById('pas').textContent='틀림';
         }
         num++;
-        document.getElementById('next').display='block';
+        document.getElementById('next').style.display='block';
     }
 }
