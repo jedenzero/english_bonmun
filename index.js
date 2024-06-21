@@ -12,13 +12,14 @@ function go() {
         });
 }
 function setBonmun(){
-    num=0;
     var sec = Number(document.getElementById('sec').value);
+    
     bonmun = dat[sec-1][0].split('. ');
     translation = dat[sec-1][1].split('. ');
     if(bonmun.length > 0){
         bonmun[bonmun.length-1] = bonmun[bonmun.length-1].replace('.', '');
     }
+    num = 0;
     next();
 }
 function next() {
