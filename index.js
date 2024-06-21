@@ -20,7 +20,9 @@ function setBonmun(){
         pun.push(match);
         return '.';
         }).split('.');
-    translation = dat[sec-1][1].split('. ');
+    translation = dat[sec-1][1].replace(/[.\?\!](?:\s)/,(match)=>{
+        return match+';';
+        }).split(';');
     if(bonmun.length > 0){
         bonmun[bonmun.length-1] = bonmun[bonmun.length-1].replace('.', '');
     }
