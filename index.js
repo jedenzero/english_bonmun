@@ -1,6 +1,7 @@
 var dat = [];
 var bonmun = [];
 var translation = [];
+var pun = [];
 var num = 0;
 
 function go() {
@@ -14,7 +15,11 @@ function go() {
 function setBonmun(){
     var sec = Number(document.getElementById('sec').value);
     
-    bonmun = dat[sec-1][0].split('. ');
+    pun = [];
+    bonmun = dat[sec-1][0].replace(/[.\?\!]/g,(match)=>{
+        pun.push(match);
+        return '.';
+        }).split('.');
     translation = dat[sec-1][1].split('. ');
     if(bonmun.length > 0){
         bonmun[bonmun.length-1] = bonmun[bonmun.length-1].replace('.', '');
@@ -61,7 +66,7 @@ function select(word) {
         } else {
             document.getElementById('pas').textContent = '틀림';
         }
-        document.getElementById('show').textContent += '.';
+        document.getElementById('show').textContent += pun[num];
         num++;
         document.getElementById('next').style.display = 'block';
     }
