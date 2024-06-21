@@ -16,7 +16,7 @@ function setBonmun(){
     var sec = Number(document.getElementById('sec').value);
     
     pun = [];
-    bonmun = dat[sec-1][0].replace(/[.\?\!]/g,(match)=>{
+    bonmun = dat[sec-1][0].replace(/[.\?\!](?:\s)/g,(match)=>{
         pun.push(match);
         return '.';
         }).split('.');
