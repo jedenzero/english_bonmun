@@ -1,21 +1,26 @@
+var dat = [];
 var bonmun = [];
 var translation = [];
 var num = 0;
 
 function go() {
-    var sec = Number(document.getElementById('sec').value);
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/178c5tppoxNq9wAKo3-d8gNWOsQ3N6HH-3Sg-ttpD5sQ/values/${document.getElementById('index').value}!A:B?key=AIzaSyATLeHQh6kM0LWRJjLg8CmzoSdnntFrmFk`)
         .then(response => response.json())
         .then(data => {
-            bonmun = data.values[sec - 1][0].split('. ');
-            translation = data.values[sec - 1][1].split('. ');
-            if (bonmun.length > 0) {
-                bonmun[bonmun.length - 1] = bonmun[bonmun.length - 1].replace('.', '');
-            }
-            next();
+            dat=data.values;
+            setBonmun();
         });
 }
-
+function setBonmun(){
+    num=0;
+    var sec = Number(document.getElementById('sec').value);
+    bonmun = dat[sec-1][0].split('. ');
+    translation = dat[sec-1][1].split('. ');
+    if(bonmun.length > 0){
+        bonmun[bonmun.length-1] = bonmun[bonmun.length-1].replace('.', '');
+    }
+    next();
+}
 function next() {
     if (num < bonmun.length) {
         problem(bonmun[num].split(' '), translation[num] + '.');
